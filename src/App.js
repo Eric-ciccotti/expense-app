@@ -1,6 +1,7 @@
-import Depenses from "./components/Depenses";
+import React from "react";
+import Depenses from "./components/Depenses/Depenses";
 
-function App() {
+const App = () => {
   const depenses = [
     {
       id: "e1",
@@ -27,6 +28,13 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "On y va !"),
+  //   React.createElement(Depenses, { items: depenses })
+  // );
 
   return (
     <div>
