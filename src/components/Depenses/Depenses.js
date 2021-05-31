@@ -10,8 +10,11 @@ const Depenses = (props) => {
 
   const selectedFilter = (selectedYear) => {
     setFiltreDepenseAnnee(selectedYear);
-    console.log(filtreDepenseAnnee);
   };
+
+  const filteredItem = props.items.filter((item) => {
+    return item.date.getFullYear().toString() === filtreDepenseAnnee;
+  });
 
   return (
     <div>
@@ -20,8 +23,9 @@ const Depenses = (props) => {
           selectedYear={filtreDepenseAnnee}
           onSelectedValue={selectedFilter}
         />
-        {props.items.map((item) => (
+        {filteredItem.map((item) => (
           <DepenseItem
+            key={item.id}
             titre={item.titre}
             montant={item.montant}
             date={item.date}

@@ -13,10 +13,6 @@ const DepenseForm = (props) => {
 
   const titreChangeHandler = (event) => {
     setEnteredTitre(event.target.value);
-    // setUserInput({
-    //     ...userInput,
-    //     enteredTitre: event.target.value
-    // })
     // setUserInput((prevState) => {
     //     return { ...prevState, enteredTitre: event.target.value}
     // })

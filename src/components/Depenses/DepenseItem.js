@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import DepenseDate from "./DepenseDate";
 import Card from "../UI/Card";
 import "./DepenseItem.css";
@@ -11,7 +10,6 @@ const DepenseItem = (props) => {
         <h2>{props.titre}</h2>
         <div className="expense-item__price">{props.montant}€</div>
       </div>
-      <button>Changer titre</button>
     </Card>
   );
 };
