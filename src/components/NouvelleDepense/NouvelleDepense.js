@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NouvelleDepense.css";
 import DepenseForm from "./DepenseForm";
 
 const NouvelleDepense = (props) => {
+  const [isEditMode, setIsEditMode] = useState(false);
+
+  const changeEditMode = () => {
+    setIsEditMode(!isEditMode);
+  }
+
+
   const sauvegardeDepenseData = (enteredDepenseData) => {
     const expenseData = {
       ...enteredDepenseData,
@@ -13,7 +20,8 @@ const NouvelleDepense = (props) => {
 
   return (
     <div className="new-expense">
-      <DepenseForm onAjouterDepense={sauvegardeDepenseData} />
+      {!isEditMode && <button onClick={changeEditMode}>Add new expenses</button>}
+      {isEditMode && <DepenseForm onEditMode={changeEditMode} onAjouterDepense={sauvegardeDepenseData} />}
     </div>
   );
 };
