@@ -25,7 +25,7 @@ const DepenseForm = (props) => {
     event.preventDefault();
     const depenseData = {
       titre: enteredTitre,
-      montant: enteredMontant,
+      montant: +enteredMontant,
       date: new Date(enteredDate),
     };
     props.onAjouterDepense(depenseData);
@@ -35,47 +35,46 @@ const DepenseForm = (props) => {
     props.onToggleEditMode();
   };
 
-    
-
   return (
-        <form onSubmit={submitHandler}>
-          <div className="new-expense__controls">
-            <div className="new-expense__control">
-              <label>Titre</label>
-              <input
-                type="text"
-                onChange={titreChangeHandler}
-                value={enteredTitre}
-              />
-            </div>
-            <div className="new-expense__control">
-              <label>Montant</label>
-              <input
-                type="number"
-                min="0.01"
-                step="0.01"
-                onChange={montantChangeHandler}
-                value={enteredMontant}
-              />
-            </div>
-            <div className="new-expense__control">
-              <label>Date</label>
-              <input
-                type="date"
-                min="2019-01-01"
-                step="2022-12-31"
-                onChange={dateChangeHandler}
-                value={enteredDate}
-              />
-            </div>
-            <div className="new-expense__actions">
-              <button type="submit">Ajouter une dépense</button>
-              <button type="button" onClick={props.onToggleEditMode}>Cancel</button>
-            </div>
-          </div>
-        </form>
-    )
-}
-
+    <form onSubmit={submitHandler}>
+      <div className="new-expense__controls">
+        <div className="new-expense__control">
+          <label>Titre</label>
+          <input
+            type="text"
+            onChange={titreChangeHandler}
+            value={enteredTitre}
+          />
+        </div>
+        <div className="new-expense__control">
+          <label>Montant</label>
+          <input
+            type="number"
+            min="0.01"
+            step="0.01"
+            onChange={montantChangeHandler}
+            value={enteredMontant}
+          />
+        </div>
+        <div className="new-expense__control">
+          <label>Date</label>
+          <input
+            type="date"
+            min="2019-01-01"
+            step="2022-12-31"
+            onChange={dateChangeHandler}
+            value={enteredDate}
+          />
+        </div>
+        <div className="new-expense__actions">
+          <button type="submit">Ajouter une dépense</button>
+          <button type="button" onClick={props.onToggleEditMode}>
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  );
+};
 
 export default DepenseForm;
